@@ -1,8 +1,10 @@
 const API_URL = 'https://sdg-astro-api.herokuapp.com/api/Nasa/apod'
-const spaceX_URL = ''
+const spaceURL =
+  'https://sdg-astro-api.herokuapp.com/api/SpaceX/launches/upcoming'
 
 const main = () => {
   nasaPhoto()
+  spaceLaunch()
 }
 
 const nasaPhoto = () => {
@@ -25,8 +27,20 @@ const nasaPhoto = () => {
     })
 }
 
-const spaceX = () => {
-  fetch
+const spaceLaunch = () => {
+  fetch(spaceURL)
+    .then(response => {
+      return response.json()
+    })
+    .then(card => {
+      // console.log(card.mission_name)
+      //get name
+      document.querySelector('.launch-card-header').textContent
+      //get details
+      //get location
+      //get countdown
+      console.log(card.mission_id)
+    })
 }
 
 document.addEventListener('DOMContentLoaded', main)
