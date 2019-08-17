@@ -89,7 +89,7 @@ body {
   font-size: 2rem;
 }
 
-section > h2 {
+section>h2 {
   display: block;
   font-size: 1.5rem;
   font-weight: bold;
@@ -112,20 +112,31 @@ section > h2 {
 
 .parent-card {
   margin: 1rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.card-time,
+.card-location,
+.card-info {
+  display: flex;
+  justify-content: flex-start;
+  font-size: 1rem;
 }
 
 .launch-card-time,
 .launch-card-info {
   border-bottom: 1px solid rgb(110, 106, 106);
-  padding-top: 0.5rem;
-  padding-top: 0.5rem;
-  font-size: 1.5rem;
+  padding: 1rem;
+  font-size: 1.2rem;
   font-weight: 300;
+
 }
 
 .launch-card-location {
-  padding-top: 0.5rem;
-  font-size: 1.5rem;
+  padding: 1rem;
+  font-size: 1.2rem;
   font-weight: 300;
 }
 
@@ -225,6 +236,7 @@ section > h2 {
   body {
     width: auto;
   }
+
   .arrow-right {
     margin: 0;
     margin-top: 8rem;
@@ -238,4 +250,23 @@ section > h2 {
   .header {
     margin: 0;
   }
+}
+
+#shuttle {
+  margin-top: 3rem;
+  padding-right: 1rem;
+}
+
+#info,
+  {
+  margin-top: 3rem;
+  font-size: 1rem;
+}
+
+#map {
+  margin-top: 1rem;
+}
+
+#time {
+  margin-top: 0.5rem;
 }

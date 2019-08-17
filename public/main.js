@@ -7,20 +7,27 @@ const main = () => {
   spaceLaunch()
 }
 
+let spaceXFlights = []
+
+class spaceXLaunches {
+  constructor(name, description, time, location) {
+    this.name = name
+    this.description = description
+    this.time = time
+    this.location = location
+  }
+}
+
 const nasaPhoto = () => {
   fetch(API_URL)
     .then(response => {
       return response.json()
     })
     .then(nasaPic => {
-      // console.log(hdUrl)
-      console.log(nasaPic.hdUrl)
       // adding the url to the page
       document.querySelector(
         '.image-container'
       ).style.backgroundImage = `url('${nasaPic.hdUrl}')`
-
-      console.log(nasaPic.copyright)
       document.querySelector('.copy').textContent = `copyright: ${
         nasaPic.copyright
       } | title: ${nasaPic.title}`
@@ -32,15 +39,23 @@ const spaceLaunch = () => {
     .then(response => {
       return response.json()
     })
-    .then(card => {
-      // console.log(card.mission_name)
-      //get name
-      document.querySelector('.launch-card-header').textContent
-      //get details
-      //get location
-      //get countdown
-      console.log(card.mission_id)
+    .then(launchCard => {
+      spaceXFlights = launchCard.map(
+        launchCard =>
+          new spaceXLaunches(
+            launchCard.mission_name,
+            launchCard.details,
+            launchCard.launch_data_unix,
+            launchCard.launch_site.site_name_long
+          )
+      )
+      console.log(spaceXFlights)
+      document.getElementById('card-name').textContent = spaceXFlights[1].name
+      document.getElementById('card-info').textContent =
+        spaceXFlights[1].description
+      document.getElementById('card-time').textContent = spaceXFlights[1].time
+      document.getElementById('card-location').textContent =
+        spaceXFlights[1].location
     })
 }
-
 document.addEventListener('DOMContentLoaded', main)
