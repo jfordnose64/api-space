@@ -24,7 +24,6 @@ const nasaPhoto = () => {
       return response.json()
     })
     .then(nasaPic => {
-      // adding the url to the page
       document.querySelector(
         '.image-container'
       ).style.backgroundImage = `url('${nasaPic.hdUrl}')`
@@ -49,13 +48,13 @@ const spaceLaunch = () => {
             launchCard.launch_site.site_name_long
           )
       )
-      console.log(spaceXFlights)
-      document.getElementById('card-name').textContent = spaceXFlights[1].name
+      document.getElementById('card-name').textContent = spaceXFlights[0].name
       document.getElementById('card-info').textContent =
-        spaceXFlights[1].description
-      document.getElementById('card-time').textContent = spaceXFlights[1].time
+        spaceXFlights[0].description
+      document.getElementById('card-time').textContent = spaceXFlights[0].time
       document.getElementById('card-location').textContent =
-        spaceXFlights[1].location
+        spaceXFlights[0].location
+      console.log(spaceXFlights)
     })
 }
 document.addEventListener('DOMContentLoaded', main)
