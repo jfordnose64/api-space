@@ -53,10 +53,6 @@ body {
   /* border-radius: 1rem; */
 }
 
-.contact:hover {
-  cursor: pointer;
-}
-
 .header-header {
   display: block;
   font-size: 1.5rem;
@@ -95,6 +91,11 @@ section>h2 {
   font-weight: bold;
   padding: 1rem;
   margin: 0rem;
+}
+
+.about:visited {
+  color: white;
+  text-decoration: none;
 }
 
 .launch-card {
